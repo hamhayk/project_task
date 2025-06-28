@@ -10,7 +10,7 @@ def sriping_vega(search_text: str, How_much):
     driver.get("https://vega.am/am")
     time.sleep(5)
 
-    # Find the search box by name="q"
+        # Find the search box by name="q"
     search_box = driver.find_element(By.NAME, "search2")
     search_box.clear()
     search_box.send_keys(search_text)
@@ -27,10 +27,9 @@ def sriping_vega(search_text: str, How_much):
         titles = container.find_elements(By.TAG_NAME, "a")
         title_list = [] 
         for title in titles:  
-                text = title.text.strip()
-                if text:
-                    title_list.append(text) 
-
+            text = title.text.strip()
+            if text:
+                title_list.append(text) 
     for price_cont in  results_container:
         prices = price_cont.find_elements(By.CSS_SELECTOR, "div.right span")
         price_list = []
@@ -40,11 +39,13 @@ def sriping_vega(search_text: str, How_much):
                 price_list.append(price_new)
 
     new_price_list = []
-    new_title_list = title_list[1:]
+    new_title_list = title_list[5:]
     for i in price_list:
         new_price_list.append(int(i[:-1].replace(" ","")))
     new_total_list = list(zip(new_title_list, new_price_list))
-    print(new_total_list)
+    # print(new_total_list)
     time.sleep(5)
     driver.quit()
     return new_price_list[0:How_much], new_title_list[0:How_much]
+
+
