@@ -39,7 +39,7 @@ def sriping_vega(search_text: str, How_much):
                 price_list.append(price_new)
 
     new_price_list = []
-    new_title_list = title_list[1:]
+    new_title_list = title_list[]
     for i in price_list:
         new_price_list.append(int(i[:-1].replace(" ","")))
     new_total_list = list(zip(new_title_list, new_price_list))
