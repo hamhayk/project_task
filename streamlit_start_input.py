@@ -7,16 +7,12 @@ currency = st.selectbox(
 index=None,
 placeholder="currency..."
 )
+if st.button('Get Rate'):
+    if currency:
+        rate = rate = get_rate_by_date(currency)
+        st.success(f"Exhcange rate for {currency}: {rate}")
+    else:
+        st.warning("Please select a currency first.")
 
-#print(currency)
 
-
-
-#print(st.slider)
-if currency == None:
-    pass
-else:
-    result = (get_rate_by_date(currency))
-
-    print(result)
 
